@@ -1,15 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  darkMode: "class",
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      screens:{
-        xs: "320px"
-      }
+      screens: {
+        xs: "320px",
+      },
     },
   },
   plugins: [],
-}
-
+};
