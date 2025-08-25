@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../Pages/layout/Layout";
-import AddTodo from "../components/addTodo/AddTodo";
+import Layout from "../pages/layout/Layout";
+import AddTodo from "../pages/addTodo/AddTodo";
 import UpdateTodo from "../pages/updateToDo/UpdateTodo";
 import DelateTodo from "../pages/delateTodo/DelateTodo";
 import ErrorPage from "../pages/errorPage/ErrorPage";
