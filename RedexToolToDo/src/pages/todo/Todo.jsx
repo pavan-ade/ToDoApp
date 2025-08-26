@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Todo = () => {
   const todos = useSelector((state) => state.todos);
@@ -8,13 +8,36 @@ const Todo = () => {
   return (
     <div>
       <ul className="list-none mt-3">
-        {todos.map(({ id, task }) => (
+        {todos.map(({ id, task, status }) => (
           <li
             className="md:w-[60%] md:mx-auto mt-0.5 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
             key={id}
           >
             <div className="text-white">{task}</div>
+            <div className="text-white">
+              <label className="font-bold">Status : </label>
+              <span className="text-sm">{status ?? "Not Updated"}</span>
+            </div>
             <div>
+              <button
+                onClick={() => navigate(`/updateStatus/${id}`)}
+                className="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded text-md"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 12a7.5 7.5 0 0112.713-5.303L19.5 3.75m0 0v6h-6m6 8.25a7.5 7.5 0 01-12.713 5.303L4.5 20.25m0 0v-6h6"
+                  />
+                </svg>
+              </button>
               <button
                 onClick={() => navigate(`/editTodo/${id}`)}
                 className="text-white bg-blue-500 border-0 py-1 px-4 mx-2 focus:outline-none hover:bg-blue-600 rounded text-md"

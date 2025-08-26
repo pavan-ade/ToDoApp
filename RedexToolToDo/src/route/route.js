@@ -4,6 +4,7 @@ import AddTodo from "../pages/addTodo/AddTodo";
 import UpdateTodo from "../pages/updateToDo/UpdateTodo";
 import DelateTodo from "../pages/delateTodo/DelateTodo";
 import ErrorPage from "../pages/errorPage/ErrorPage";
+import TodoStatus from "../pages/todoStatus/TodoStatus";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/deleteTodo/:id",
         Component: DelateTodo,
+      },
+      {
+        path: "/updateStatus/:id",
+        Component: TodoStatus,
       }
     ],
   },{
