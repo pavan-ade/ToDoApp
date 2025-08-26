@@ -18,7 +18,7 @@ const AddTodo = ({ editTodo, onClose }) => {
     // console.log("click");
     if (editTodo && editTodo.id) {
       // console.log("comming",input)
-      dispatch(updateTodo({ id: editTodo.id, task: input }));
+      dispatch(updateTodo({ id: editTodo.id, task: input, status: "" }));
     } else {
       dispatch(addTodo(input));
     }

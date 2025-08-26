@@ -14,20 +14,26 @@ export const todoSlice = createSlice({
       const todo = {
         id: nanoid(),
         task: action.payload,
+        status: null,
       };
       state.todos.push(todo);
-      localStorage.setItem("todos",JSON.stringify(state.todos));
+      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     removeTodo: (state, action) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
-      localStorage.setItem("todos",JSON.stringify(state.todos));
+      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     updateTodo: (state, action) => {
-      const { id, task } = action.payload;
+      const { id, task, status } = action.payload;
       const existed = state.todos.find((todo) => todo.id == id);
       if (existed) {
-        existed.task = task;
-        localStorage.setItem("todos",JSON.stringify(state.todos));
+        if (task !== undefined) {
+          existed.task = task;
+        }
+        if (status !== undefined) {
+          existed.status = status;
+        }
+        localStorage.setItem("todos", JSON.stringify(state.todos));
       }
     },
   },
