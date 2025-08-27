@@ -37,17 +37,14 @@ const TodoStatus = () => {
         <p className="text-lg">Please update the Status for {todo?.task}?</p>
         <CloseButton />
         <select
+          value={todo?.status ?? "Select Status"}
           onChange={(e) => {
-            setTodo({ id: todo.id, task: todo.task, status: e.target.value });
+            setTodo({ ...todo, status: e.target.value });
           }}
           className="appearance-none bg-gray-600 dark:bg-gray-400 rounded border focus:border-white  focus:outline-none focus:ring-0 focus:border-gray-500 text-base outline-none text-gray-100 py-1 px-3 xs:py-2 xs:px-4 mr-3 mt-4 leading-8 transition-colors duration-200 ease-in-out"
         >
           {status.map((status, index) => (
-            <option
-              key={uniqId + index}
-              value={status}
-              disabled={index == 0 ? true : false}
-            >
+            <option key={uniqId + index} value={status} disabled={index === 0}>
               {status}
             </option>
           ))}
