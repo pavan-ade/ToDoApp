@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const AddTodo = ({ editTodo, onClose }) => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
-
+  const [error, setError] = useState("");
   useEffect(() => {
     if (editTodo && editTodo.task) {
       setInput(editTodo.task);
@@ -15,6 +15,10 @@ const AddTodo = ({ editTodo, onClose }) => {
 
   const handleSumbit = (e) => {
     e.preventDefault();
+    if (!input.trim()) {
+      setError("Todo cannot be empty!");
+      return;
+    }
     // console.log("click");
     if (editTodo && editTodo.id) {
       // console.log("comming",input)
@@ -24,6 +28,7 @@ const AddTodo = ({ editTodo, onClose }) => {
     }
     if (onClose) onClose();
     setInput("");
+    setError("");
   };
   const navigate = useNavigate();
 
@@ -36,14 +41,22 @@ const AddTodo = ({ editTodo, onClose }) => {
   return (
     <>
       <form onSubmit={handleSumbit} className="space-x-3 mt-8">
-        <input
-          type="text"
-          className={` bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 xs:py-2 xs:px-4 leading-8 transition-colors duration-200 ease-in-out
-          ${editTodo ? "xs:w-50" : "xs:w-60"}`}
-          placeholder="Enter a Todo..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
+        <div className="inline-block">
+          <input
+            type="text"
+            className={` bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 xs:py-2 xs:px-4 leading-8 transition-colors duration-200 ease-in-out
+            ${editTodo ? "xs:w-50" : "xs:w-60"} 
+            ${
+              error
+                ? "border-red-500 focus:border-red-500 focus:ring-red-900"
+                : ""
+            }`}
+            placeholder="Enter a Todo..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          {error && <span className="table text-red-500 text-sm mx-auto">{error}</span>}
+        </div>
         <button
           type="submit"
           onClick={handleUpdate}
