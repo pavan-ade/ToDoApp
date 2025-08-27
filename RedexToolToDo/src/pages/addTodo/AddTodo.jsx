@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo, updateTodo } from "../../features/todo/todoSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useId } from "react";
 
 const AddTodo = ({ editTodo, onClose }) => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
   const [error, setError] = useState("");
+  const uniqId = useId();
   useEffect(() => {
     if (editTodo && editTodo.task) {
       setInput(editTodo.task);
@@ -15,14 +17,14 @@ const AddTodo = ({ editTodo, onClose }) => {
 
   const handleSumbit = (e) => {
     e.preventDefault();
-    if (!input.trim()) {
+    setInput(input.trim());
+    if (!input) {
       setError("Todo cannot be empty!");
       return;
     }
-    // console.log("click");
     if (editTodo && editTodo.id) {
       // console.log("comming",input)
-      dispatch(updateTodo({ id: editTodo.id, task: input, status: "" }));
+      dispatch(updateTodo({ id: editTodo.id, task: input }));
     } else {
       dispatch(addTodo(input));
     }
@@ -55,7 +57,11 @@ const AddTodo = ({ editTodo, onClose }) => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          {error && <span className="table text-red-500 text-sm mx-auto">{error}</span>}
+          {error && (
+            <span key={uniqId} className="table text-red-500 text-sm mx-auto">
+              {error}
+            </span>
+          )}
         </div>
         <button
           type="submit"
