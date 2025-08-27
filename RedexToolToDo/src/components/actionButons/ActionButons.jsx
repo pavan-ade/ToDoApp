@@ -10,7 +10,7 @@ const ActionButons = ({ actionBtns }) => {
           <button
             key={tbnName + id}
             onClick={() => navigate(`${navigateLink}/${id}`)}
-            className={`text-white bg-${clr}-500 border-0 py-1 px-4 mr-1 focus:outline-none hover:bg-green-600 rounded text-md relative group inline-block`}
+            className={`text-white bg-${clr}-500 border-0 py-1 px-4 mr-1 focus:outline-none hover:bg-${clr}-600 rounded text-md relative group inline-block`}
           >
             <span
               id={`tri-${tbnName + id}}`}
