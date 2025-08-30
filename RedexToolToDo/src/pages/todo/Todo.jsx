@@ -35,11 +35,11 @@ const Todo = () => {
     },
   ]);
   return (
-    <div className="mt-40">
+    <div>
       <ul className="list-none mt-3">
         {todos.map(({ id, task, status }) => (
           <li
-            className="h-18 my-0.5 flex justify-between items-center bg-zinc-800 px-3 py-3 rounded "
+            className="my-0.5 flex justify-between items-center bg-zinc-800 px-3 py-3 rounded "
             key={id}
           >
             <div className="text-white w-[200px] overflow-x-hidden text-ellipsis">
