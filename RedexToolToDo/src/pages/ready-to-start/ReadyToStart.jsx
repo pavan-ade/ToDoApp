@@ -47,8 +47,11 @@ const ReadyToStart = () => {
       setActiveTab("Completed");
     } else if (pathname == "/skipped/cancelled") {
       setActiveTab("Skipped / Cancelled");
+    } else {
+      console.log(pathname);
+      setActionBtns("All");
     }
-  }, [pathname]);
+  }, [pathname, activeTab]);
 
   return (
     <div>

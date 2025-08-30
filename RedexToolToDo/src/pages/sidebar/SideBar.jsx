@@ -20,9 +20,7 @@ const SideBar = () => {
     setActionStatus(label);
   };
   useEffect(() => {
-    if ("All" === activeStatus) {
-      navigator("/");
-    }
+    navigator("/");
   }, [activeStatus]);
   return (
     <div className={`w-${screen} bg-gray-600 text-white text-xl flex flex-col`}>
