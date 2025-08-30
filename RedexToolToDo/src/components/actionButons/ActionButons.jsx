@@ -20,13 +20,13 @@ const ActionButons = ({ actionBtns }) => {
                px-2 py-1 rounded shadow-lg
                opacity-0 group-hover:opacity-100 group-focus-within:opacity-100
                pointer-events-none transition-opacity duration-200
-               whitespace-nowrap z-20`}
+               whitespace-nowrap z-50`}
             >
               {Btnlabel}
             </span>
             <span
               className={`absolute -top-2 left-1/2 -translate-x-1/2
-               w-2 h-2 bg-gray-900 rotate-45
+               w-2 h-2 bg-gray-600 rotate-45
                opacity-0 group-hover:opacity-100 group-focus-within:opacity-100
                transition-opacity duration-200 z-10`}
             />

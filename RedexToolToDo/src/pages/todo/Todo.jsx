@@ -35,7 +35,7 @@ const Todo = () => {
     },
   ]);
   return (
-    <div>
+    <div className="mt-40">
       <ul className="list-none mt-3">
         {todos.map(({ id, task, status }) => (
           <li
