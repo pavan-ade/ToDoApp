@@ -1,9 +1,8 @@
 import Footer from "../../components/footer/Footer";
 import ThemeContent from "../../components/themeContent/ThemeContent";
 import AddTodo from "../addTodo/AddTodo";
-import Todo from "../todo/Todo";
 import { Outlet } from "react-router-dom";
-
+import SideBar from "../sidebar/SideBar";
 const Layout = () => {
   return (
     <>
