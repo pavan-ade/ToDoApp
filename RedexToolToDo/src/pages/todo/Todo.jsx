@@ -35,14 +35,14 @@ const Todo = () => {
     },
   ]);
   return (
-    <div>
+    <div className="mt-40">
       <ul className="list-none mt-3">
         {todos.map(({ id, task, status }) => (
           <li
-            className="md:w-[60%] md:mx-auto mt-0.5 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
+            className="h-18 my-0.5 flex justify-between items-center bg-zinc-800 px-3 py-3 rounded"
             key={id}
           >
-            <div className="text-white">{task}</div>
+            <div className="text-white text-lg">{task}</div>
             <div className="text-white">
               <label className="font-bold">Status : </label>
               <span className="text-sm">{status ?? "Not Updated"}</span>

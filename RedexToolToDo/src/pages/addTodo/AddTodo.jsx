@@ -42,7 +42,10 @@ const AddTodo = ({ editTodo, onClose }) => {
 
   return (
     <>
-      <form onSubmit={handleSumbit} className="space-x-3 mt-8">
+      <form
+        onSubmit={handleSumbit}
+        className="space-x-3 my-4 ml-3"
+      >
         <div className="inline-block">
           <input
             type="text"
