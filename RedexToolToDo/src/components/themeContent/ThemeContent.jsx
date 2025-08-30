@@ -12,7 +12,7 @@ const ThemeContent = () => {
     }
   }, [toggleTheme]);
   return (
-    <div className="fixed top-10 right-40 dark:bg-gray-900 dark:text-white">
+    <div className="fixed top-10 right-40 dark:bg-gray-900 dark:text-white z-50">
       {toggleTheme == "light" && (
         <button onClick={() => settoggleTheme("dark")}>
           <svg
