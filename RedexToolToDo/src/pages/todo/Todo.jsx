@@ -39,13 +39,13 @@ const Todo = () => {
       <ul className="list-none mt-3">
         {todos.map(({ id, task, status }) => (
           <li
-            className="my-0.5 flex justify-between items-center bg-zinc-800 px-3 py-3 rounded "
+            className="my-0.5 flex justify-between items-center bg-zinc-800 md:p-3 xs:p-2 rounded gap-x-2"
             key={id}
           >
-            <div className="text-white w-[200px] overflow-x-hidden text-ellipsis">
+            <div className="text-white w-[200px] md:w-[150px] overflow-x-hidden text-ellipsis">
               {task}
             </div>
-            <div className="text-white w-[200px]">
+            <div className="text-white w-[200px] md:w-[150px]">
               <label className="font-bold">Status : </label>
               <span className="text-sm">{status ?? "Not Updated"}</span>
             </div>

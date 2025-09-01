@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import ActionButons from "../../components/actionButons/ActionButons";
 import { useLocation, useParams } from "react-router-dom";
 
-const ReadyToStart = () => {
+const Status = () => {
   const { pathname } = useLocation();
   const [actionBtns, setActionBtns] = useState([
     {
@@ -63,11 +63,13 @@ const ReadyToStart = () => {
           })
           .map(({ id, task, status }) => (
             <li
-              className="h-18 my-0.5 flex justify-between items-center bg-zinc-800 px-3 py-3 rounded"
+              className=" h-18 my-0.5 flex justify-between items-center bg-zinc-800 px-3 py-3 rounded"
               key={id}
             >
-              <div className="text-white text-lg">{task}</div>
-              <div className="text-white">
+              <div className="text-white text-lg w-[200px] md:w-[150px] overflow-x-hidden text-ellipsis">
+                {task}
+              </div>
+              <div className="text-white w-[200px] md:w-[150px]">
                 <label className="font-bold">Status : </label>
                 <span className="text-sm">{status ?? "Select Status"}</span>
               </div>
@@ -86,4 +88,4 @@ const ReadyToStart = () => {
   );
 };
 
-export default ReadyToStart;
+export default Status;

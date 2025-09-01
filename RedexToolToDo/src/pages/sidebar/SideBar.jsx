@@ -12,7 +12,7 @@ const SideBar = () => {
     { label: "Completed", route: "/completed" },
     { label: "Skipped / Cancelled", route: "/skipped/cancelled" },
   ];
-  const [status, setStatus] = useState(tabs);
+  const [status, setStatus] = useState([]);
   const [activeStatus, setActionStatus] = useState("All");
   const id = useId();
   const handleStatus = (label) => {
@@ -20,7 +20,9 @@ const SideBar = () => {
     setActionStatus(label);
   };
   useEffect(() => {
-    navigator("/");
+    if ("All" === activeStatus) {
+      navigator("/");
+    }
   }, [activeStatus]);
   return (
     <div className={`w-${screen} bg-gray-600 text-white text-xl flex flex-col`}>

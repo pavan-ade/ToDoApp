@@ -44,16 +44,16 @@ const AddTodo = ({ editTodo, onClose }) => {
     <>
       <form
         onSubmit={handleSumbit}
-        className="space-x-3 my-4 ml-3"
+        className="space-x-3 md:my-4 xs:my-2 md:ml-3 xs:ml-2"
       >
-        <div className="inline-block">
+        <div className="md:inline-block xs:block">
           <input
             type="text"
-            className={` bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 xs:py-2 xs:px-4 leading-8 transition-colors duration-200 ease-in-out
-            ${editTodo ? "xs:w-50" : "xs:w-60"} 
+            className={` bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 sm:py-1 sm:px-3 xs:py-0.6 xs:px-4 leading-8 transition-colors duration-200 ease-in-out
+            ${editTodo ? "xs:w-full md:w-40" : "xs:w-[90%] md:w-60"} 
             ${
               error
-                ? "border-red-500 focus:border-red-500 focus:ring-red-900"
+                ? "border-red-500 focus:border-red-500 focus:ring-red-900 xs:w-60 sm:w-full"
                 : ""
             }`}
             placeholder="Enter a Todo..."
@@ -66,13 +66,15 @@ const AddTodo = ({ editTodo, onClose }) => {
             </span>
           )}
         </div>
-        <button
-          type="submit"
-          onClick={handleUpdate}
-          className="xs:m-3 sm:m-0 text-white bg-indigo-500 border-0 py-2 px-6 xs:py-2 xs:px-2 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-        >
-          {editTodo && editTodo.id ? "update" : "Add"} ToDo
-        </button>
+        <div className="xs:flex xs:justify-center md:inline-block mt-2">
+          <button
+            type="submit"
+            onClick={handleUpdate}
+            className="sm:mx-0 text-white bg-indigo-500 border-0 sm:py-2 sm:px-6 xs:py-0.5 xs:px-3 focus:outline-none hover:bg-indigo-600 rounded text-lg xs:text-md"
+          >
+            {editTodo && editTodo.id ? "Update" : "Add"} ToDo
+          </button>
+        </div>
       </form>
     </>
   );

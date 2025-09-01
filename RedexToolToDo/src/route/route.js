@@ -5,7 +5,7 @@ import UpdateTodo from "../pages/updateToDo/UpdateTodo";
 import DelateTodo from "../pages/delateTodo/DelateTodo";
 import ErrorPage from "../pages/errorPage/ErrorPage";
 import TodoStatus from "../pages/todoStatus/TodoStatus";
-import ReadyTOStart from "../pages/ready-to-start/ReadyToStart";
+import Status from "../pages/Status/Status";
 import Todo from "../pages/todo/Todo";
 
 const router = createBrowserRouter([
@@ -35,23 +35,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/readytostart",
-        Component: ReadyTOStart,
+        Component: Status,
       },
       {
         path: "/inprogress",
-        Component: ReadyTOStart,
+        Component: Status,
       },
       {
         path: "/onhold",
-        Component: ReadyTOStart,
+        Component: Status,
       },
       {
         path: "/completed",
-        Component: ReadyTOStart,
+        Component: Status,
       },
       {
         path: "/skipped/cancelled",
-        Component: ReadyTOStart,
+        Component: Status,
       },
     ],
   },
