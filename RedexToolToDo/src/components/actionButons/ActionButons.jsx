@@ -10,7 +10,7 @@ const ActionButons = ({ actionBtns }) => {
           <button
             key={tbnName + id}
             onClick={() => navigate(`${navigateLink}/${id}`)}
-            className={`text-white bg-${clr}-500 border-0 py-1 px-4 mr-1 focus:outline-none hover:bg-${clr}-600 rounded text-md relative group inline-block`}
+            className={`text-white bg-${clr}-500 border-0 md:py-1 md:px-4 xs:px-2 md:mr-1 xs:mr-0 focus:outline-none hover:bg-${clr}-600 rounded text-md relative group inline-block`}
           >
             <span
               id={`tri-${tbnName + id}}`}
@@ -36,7 +36,7 @@ const ActionButons = ({ actionBtns }) => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="md:w-6 md:h-6 xs:w-2 xs:h-2"
             >
               <path
                 strokeLinecap="round"
