@@ -1,63 +1,103 @@
 import React, { useEffect, useState } from "react";
 import { useId } from "react";
 import { Link, Route, useNavigate } from "react-router-dom";
+import {
+  Menu,
+  ListTodo, // For All
+  PlayCircle, // For Ready to Start
+  Loader2, // For In Progress (spinner style)
+  PauseCircle, // For On Hold
+  CheckCircle, // For Completed
+  XCircle, // For Skipped / Cancelled
+} from "lucide-react";
 const SideBar = () => {
   const navigator = useNavigate();
-  const [screen, setScreen] = useState("64");
-  const tabs = [
-    { label: "All", route: "/" },
-    { label: "Ready to Start", route: "/readytostart" },
-    { label: "In Progress", route: "/inprogress" },
-    { label: "On Hold", route: "/onhold" },
-    { label: "Completed", route: "/completed" },
-    { label: "Skipped / Cancelled", route: "/skipped/cancelled" },
+  const tabConfig = [
+    {
+      label: "All",
+      route: "/",
+      icon: ListTodo,
+      color: "bg-bondi text-white-400 hover:text-white-500",
+      activeColor: "bg-gray-800 font-semibold",
+    },
+    {
+      label: "Ready to Start",
+      route: "/readytostart",
+      icon: PlayCircle,
+      color: "text-white-500 bg-blue-400 hover:text-blue-500",
+      activeColor: "bg-gray-800 font-semibold",
+    },
+    {
+      label: "In Progress",
+      route: "/inprogress",
+      icon: Loader2,
+      color: "text-white-500 bg-yellow-400 hover:text-yellow-500",
+      activeColor: "bg-gray-800 font-semibold",
+    },
+    {
+      label: "On Hold",
+      route: "/onhold",
+      icon: PauseCircle,
+      color: "text-white-500 bg-orange-400 hover:text-orange-500",
+      activeColor: "bg-gray-800 font-semibold",
+    },
+    {
+      label: "Completed",
+      route: "/completed",
+      icon: CheckCircle,
+      color: "text-white-500 bg-green-400 hover:text-green-500",
+      activeColor: "bg-gray-800 font-semibold",
+    },
+    {
+      label: "Skipped / Cancelled",
+      route: "/skipped/cancelled",
+      icon: XCircle,
+      color: "text-white-500 bg-red-600 hover:text-red-500",
+      activeColor: "bg-gray-800 font-semibold",
+    },
   ];
-  const [status, setStatus] = useState([]);
+
+  const [status, setStatus] = useState(tabConfig);
   const [activeStatus, setActionStatus] = useState("All");
+  const [isIconsMenu, setIsIconMunu] = useState(true);
   const id = useId();
   const handleStatus = (label) => {
     // console.log(label);
     setActionStatus(label);
   };
   useEffect(() => {
+    // console.log(isIconsMenu);
     if ("All" === activeStatus) {
       navigator("/");
     }
-  }, [activeStatus]);
+  }, [activeStatus, isIconsMenu]);
   return (
-    <div className={`w-${screen} bg-gray-600 text-white text-xl flex flex-col`}>
+    <div className={`bg-gray-600 text-white text-xl flex flex-col`}>
       <button
-        onClick={() => setStatus(status.length == 0 ? tabs : [])}
-        className="mt-6 ml-4"
+        onClick={() => setIsIconMunu((prev) => !prev)}
+        className="mt-6 mx-2"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2.5}
-          stroke="currentColor"
-          className="w-10 h-10"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
+        <Menu className="w-10 h-10" />
       </button>
+      <hr />
       <aside>
         <nav className="text-left my-3">
-          {status.map(({ label, route }, idx) => (
-            <li
-              key={id + idx}
-              className={`list-none px-2 py-1 hover:bg-gray-800 cursor-pointer rounded ${
-                activeStatus == label ? "bg-gray-800 text-white " : ""
-              } `}
-              onClick={() => handleStatus(label)}
-            >
-              <Link to={route}>{label}</Link>
-            </li>
-          ))}
+          {status.map(
+            ({ label, icon: Icon, route, color, activeColor }, idx) => (
+              <li
+                key={id + idx}
+                className={`list-none px-2 py-1 m-1 hover:bg-gray-800  cursor-pointer rounded ${
+                  activeStatus == label ? activeColor : color
+                } `}
+                onClick={() => handleStatus(label)}
+              >
+                <Link to={route}>
+                  {isIconsMenu && <Icon className="w-8 h-8" />}
+                  {isIconsMenu ? "" : label}
+                </Link>
+              </li>
+            )
+          )}
         </nav>
       </aside>
     </div>
