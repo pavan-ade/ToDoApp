@@ -1,12 +1,14 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../pages/layout/Layout";
-import AddTodo from "../pages/addTodo/AddTodo";
-import UpdateTodo from "../pages/updateToDo/UpdateTodo";
-import DelateTodo from "../pages/delateTodo/DelateTodo";
-import ErrorPage from "../pages/errorPage/ErrorPage";
-import TodoStatus from "../pages/todoStatus/TodoStatus";
-import Status from "../pages/Status/Status";
-import Todo from "../pages/todo/Todo";
+
+const Layout = lazy(() => import("../pages/layout/Layout"));
+const AddTodo = lazy(() => import("../pages/addTodo/AddTodo"));
+const UpdateTodo = lazy(() => import("../pages/updateToDo/UpdateTodo"));
+const DelateTodo = lazy(() => import("../pages/delateTodo/DelateTodo"));
+const ErrorPage = lazy(() => import("../pages/errorPage/ErrorPage"));
+const TodoStatus = lazy(() => import("../pages/todoStatus/TodoStatus"));
+const Status = lazy(() => import("../pages/Status/Status"));
+const Todo = lazy(() => import("../pages/todo/Todo"));
 
 const router = createBrowserRouter([
   {
