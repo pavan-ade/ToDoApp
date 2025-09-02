@@ -20,7 +20,7 @@ const Todo = () => {
       id: 124,
       Btnlabel: "Update Task",
       icon: Edit,
-      clr: "blue",
+      clr: "brandeis",
       navigateLink: "/editTodo",
     },
     {
@@ -47,7 +47,7 @@ const Todo = () => {
               <label className="font-bold">Status : </label>
               <span className="text-sm">{status ?? "Not Updated"}</span>
             </div>
-            <div>
+            <div className="flex">
               <ActionButons
                 actionBtns={actionBtns.map((actionBtn) => ({
                   ...actionBtn,

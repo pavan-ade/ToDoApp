@@ -20,7 +20,7 @@ const Status = () => {
       id: 124,
       Btnlabel: "Update Task",
       icon: Edit,
-      clr: "blue",
+      clr: "brandeis",
       navigateLink: "/editTodo",
     },
     {
@@ -71,7 +71,7 @@ const Status = () => {
                 <label className="font-bold">Status : </label>
                 <span className="text-sm">{status ?? "Select Status"}</span>
               </div>
-              <div>
+              <div className="flex">
                 <ActionButons
                   actionBtns={actionBtns.map((actionBtn) => ({
                     ...actionBtn,
