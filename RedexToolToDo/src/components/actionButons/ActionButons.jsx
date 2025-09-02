@@ -6,11 +6,11 @@ const ActionButons = ({ actionBtns }) => {
   return (
     <>
       {actionBtns.map(
-        ({ id, Btnlabel, tbnName, drawing_inst, clr, navigateLink }) => (
+        ({ id, Btnlabel, tbnName, icon: Icon, clr, navigateLink }) => (
           <button
             key={tbnName + id}
             onClick={() => navigate(`${navigateLink}/${id}`)}
-            className={`text-white bg-${clr}-500 border-0 md:py-1 md:px-4 xs:px-2 md:mr-1 xs:mr-0 focus:outline-none hover:bg-${clr}-600 rounded text-md relative group inline-block`}
+            className={`text-white bg-${clr}-500 border-0 md:py-1 md:px-2 xs:px-2 md:mr-1 xs:mr-0 focus:outline-none hover:bg-${clr}-600 rounded text-md relative group inline-block`}
           >
             <span
               id={`tri-${tbnName + id}}`}
@@ -30,20 +30,7 @@ const ActionButons = ({ actionBtns }) => {
                opacity-0 group-hover:opacity-100 group-focus-within:opacity-100
                transition-opacity duration-200 z-10`}
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="md:w-6 md:h-6 xs:w-2 xs:h-2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d={`${drawing_inst}`}
-              />
-            </svg>
+            <Icon className="md:w-6 md:h-6 xs:w-4 xs:h-4" />
           </button>
         )
       )}

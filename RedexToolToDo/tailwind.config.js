@@ -7,6 +7,10 @@ export default {
       screens: {
         xs: "320px",
       },
+      colors: {
+        bondi: "#0095b6",
+        brandeis: "#0070ff",
+      },
     },
   },
   plugins: [],
