@@ -91,9 +91,26 @@ const SideBar = () => {
                 } `}
                 onClick={() => handleStatus(label)}
               >
-                <Link to={route}>
+                <Link to={route} className="relative group flex items-center">
                   {isIconsMenu && <Icon className="w-8 h-8" />}
                   {isIconsMenu ? "" : label}
+                  <span
+                    role="tooltip"
+                    className={`absolute top-1/2 left-14 -translate-y-1/2
+                      bg-gray-900 text-white text-sm font-medium
+                      px-2 py-1 rounded shadow-lg
+                      opacity-0 group-hover:opacity-100 
+                      pointer-events-none transition-opacity duration-200
+                      whitespace-nowrap z-[51]`}
+                  >
+                    {label}
+                  </span>
+                  <span
+                    className={`absolute top-1/2 left-[2.8rem]  -translate-y-1/2
+                      w-2 h-2 bg-gray-900 rotate-45
+                      opacity-0 group-hover:opacity-100 
+                      transition-opacity duration-200 z-[51]`}
+                  />
                 </Link>
               </li>
             )
