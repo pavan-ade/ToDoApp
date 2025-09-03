@@ -3,12 +3,12 @@ import { useId } from "react";
 import { Link, Route, useNavigate } from "react-router-dom";
 import {
   Menu,
-  ListTodo, // For All
-  PlayCircle, // For Ready to Start
-  Loader2, // For In Progress (spinner style)
-  PauseCircle, // For On Hold
-  CheckCircle, // For Completed
-  XCircle, // For Skipped / Cancelled
+  ListTodo,
+  PlayCircle,
+  Hourglass,
+  PauseCircle,
+  CheckCircle,
+  XCircle,
 } from "lucide-react";
 const SideBar = () => {
   const navigator = useNavigate();
@@ -30,7 +30,7 @@ const SideBar = () => {
     {
       label: "In Progress",
       route: "/inprogress",
-      icon: Loader2,
+      icon: Hourglass,
       color: "text-white-500 bg-yellow-400 hover:text-yellow-500",
       activeColor: "bg-gray-800 font-semibold",
     },
