@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import CloseButton from "../../components/closeButton/CloseButton";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { removeTodo } from "../../features/todo/todoSlice";
 

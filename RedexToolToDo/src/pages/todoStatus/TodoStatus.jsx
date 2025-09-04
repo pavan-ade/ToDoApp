@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateTodo } from "../../features/todo/todoSlice";
 import { useNavigate } from "react-router-dom";
+import { tabs } from "../../js/tabConfig/tabConfig";
 
 const TodoStatus = () => {
   const [todo, setTodo] = useState(null);
@@ -14,14 +15,7 @@ const TodoStatus = () => {
   const dispatch = useDispatch();
   const navigator = useNavigate();
 
-  const [status, setStatus] = useState([
-    "Select Status",
-    "Ready to Start",
-    "In Progress",
-    "On Hold",
-    "Completed",
-    "Skipped / Cancelled",
-  ]);
+  const [status, setStatus] = useState(tabs);
   const handleStatus = () => {
     // console.log(JSON.stringify(todo));
     dispatch(updateTodo(todo));
