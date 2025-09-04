@@ -1,39 +1,17 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ActionButons from "../../components/actionButons/ActionButons";
-import { Edit, RefreshCw, Trash2 } from "lucide-react";
+import { SquarePlus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import {ActionBtns} from "../../js/actionButtons/actionButtons";
 
 const Todo = () => {
   const todos = useSelector((state) => state.todos);
-
-  const [actionBtns, setActionBtns] = useState([
-    {
-      tbnName: "update",
-      id: 123,
-      Btnlabel: "Update Status",
-      icon: RefreshCw,
-      clr: "bg-green-500 hover:bg-green-600",
-      navigateLink: "/updateStatus",
-    },
-    {
-      tbnName: "edit",
-      id: 124,
-      Btnlabel: "Update Task",
-      icon: Edit,
-      clr: "bg-blue-500 hover:bg-blue-600",
-      navigateLink: "/editTodo",
-    },
-    {
-      tbnName: "delate",
-      id: 125,
-      Btnlabel: "Delete Task",
-      icon: Trash2,
-      clr: "bg-red-500 hover:bg-red-600",
-      navigateLink: "/deleteTodo",
-    },
-  ]);
+  const navigate = useNavigate();
   return (
-    <div className="md:mx-3 xs:mx-2 my-4">
+    <div className="md:mx-3 mx-2 my-4">
+     
+      <hr />
       <ul className="list-none ">
         {todos.map(({ id, task, status }) => (
           <li
@@ -49,7 +27,7 @@ const Todo = () => {
             </div>
             <div className="md:flex">
               <ActionButons
-                actionBtns={actionBtns.map((actionBtn) => ({
+                actionBtns={ActionBtns.map((actionBtn) => ({
                   ...actionBtn,
                   id: id,
                 }))}
