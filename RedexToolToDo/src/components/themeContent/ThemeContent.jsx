@@ -13,7 +13,7 @@ const ThemeContent = () => {
     }
   }, [toggleTheme]);
   return (
-    <div className="fixed md:top-10 lg:right-40 md:right-20 xs:right-4 xs:top-4 dark:text-white z-50">
+    <div className="absolute md:top-10 lg:right-40 md:right-20 xs:right-4 xs:top-4 dark:text-white z-50">
       {toggleTheme == "light" && (
         <button onClick={() => settoggleTheme("dark")}>
           <Moon />
