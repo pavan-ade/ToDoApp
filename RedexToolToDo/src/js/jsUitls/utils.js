@@ -1,5 +1,5 @@
 export const handleTheme = (toggleTheme) => {
-  console.log(toggleTheme);
+  // console.log(toggleTheme);
   const body = window.document.body;
   if (toggleTheme !== "dark") {
     body.classList.add("dark");
