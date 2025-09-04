@@ -11,10 +11,12 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
+      // console.log(action)
+      const { task, status } = action.payload;
       const todo = {
         id: nanoid(),
-        task: action.payload,
-        status: null,
+        task: task,
+        status: status,
       };
       state.todos.push(todo);
       localStorage.setItem("todos", JSON.stringify(state.todos));
