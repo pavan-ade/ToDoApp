@@ -72,7 +72,7 @@ const SideBar = () => {
     }
   }, [activeStatus, isIconsMenu]);
   return (
-    <div className={`bg-gray-600 text-white text-xl flex flex-col`}>
+    <div className={`bg-gray-600 dark:bg-gray-800 text-white text-xl flex flex-col gap-1`}>
       <button
         onClick={() => setIsIconMunu((prev) => !prev)}
         className="mt-6 mx-2"
@@ -116,6 +116,7 @@ const SideBar = () => {
             )
           )}
         </nav>
+        
       </aside>
     </div>
   );

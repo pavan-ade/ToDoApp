@@ -10,6 +10,7 @@ export default {
       colors: {
         bondi: "#0095b6",
         brandeis: "#0070ff",
+        veronica: "#A020F0",
       },
     },
   },

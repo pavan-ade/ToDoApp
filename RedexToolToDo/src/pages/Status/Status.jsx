@@ -12,7 +12,7 @@ const Status = () => {
       id: 123,
       Btnlabel: "Update Status",
       icon: RefreshCw,
-      clr: "green",
+      clr: "bg-green-500 hover:bg-green-600",
       navigateLink: "/updateStatus",
     },
     {
@@ -20,7 +20,7 @@ const Status = () => {
       id: 124,
       Btnlabel: "Update Task",
       icon: Edit,
-      clr: "brandeis",
+      clr: "bg-blue-500 hover:bg-blue-600",
       navigateLink: "/editTodo",
     },
     {
@@ -28,7 +28,7 @@ const Status = () => {
       id: 125,
       Btnlabel: "Delete Task",
       icon: Trash2,
-      clr: "red",
+      clr: "bg-red-500 hover:bg-red-600",
       navigateLink: "/deleteTodo",
     },
   ]);
@@ -52,7 +52,7 @@ const Status = () => {
   }, [pathname, activeTab]);
 
   return (
-    <div>
+    <div className="md:mx-3 xs:mx-2 my-4">
       <ul>
         {todos
           .filter((todo) => {
@@ -61,17 +61,17 @@ const Status = () => {
           })
           .map(({ id, task, status }) => (
             <li
-              className=" h-18 my-0.5 flex justify-between items-center bg-zinc-800 px-1 py-2 rounded"
+              className="h-18 flex border-b-8 border-zinc-400 dark:bg-zinc-800 justify-between items-center bg-white px-1 md:pb-1 py-2 rounded"
               key={id}
             >
-              <div className="text-white text-lg w-[200px] md:w-[150px] overflow-x-hidden text-ellipsis">
+              <div className="dark:text-white text-lg xs:w-[100px] md:w-[200px] overflow-x-hidden text-ellipsis">
                 {task}
               </div>
-              <div className="text-white w-[200px] md:w-[150px]">
+              <div className="dark:text-white xs:w-[70px] md:w-[200px]">
                 <label className="font-bold">Status : </label>
                 <span className="text-sm">{status ?? "Select Status"}</span>
               </div>
-              <div className="flex">
+              <div className="md:flex">
                 <ActionButons
                   actionBtns={actionBtns.map((actionBtn) => ({
                     ...actionBtn,
