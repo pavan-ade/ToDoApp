@@ -6,7 +6,7 @@ const SearchUI = ({ searchValue, setSearchValue }) => {
 
   return (
     <div className="px-3 py-2 flex gap-x-3 justify-end">
-      <div className="relative w-[20%]">
+      <div className="relative md:w-[20%] w-[40%]">
         <Search className="absolute left-2 text-white top-1/2 -translate-y-1/2 text-gray-400 h-4 w-4" />
         <input
           type="text"
