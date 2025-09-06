@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { handletabLabel } from "../../js/jsUitls/utils";
 import { useSelector } from "react-redux";
-import Search from "../Search/Search";
+import Search from "../search/Search";
 import TodoListView from "../todoListView/todoListView";
 import EmptyMessage from "../emptyMessage/EmptyMessage";
 
