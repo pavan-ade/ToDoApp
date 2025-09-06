@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useId } from "react";
-import { Link, Route, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { tabConfig } from "../../js/tabConfig/tabConfig";
 import { Menu } from "lucide-react";
 
 const SideBar = () => {
   const navigator = useNavigate();
 
-  const [activeStatus, setActionStatus] = useState("All");
-  const [isIconsMenu, setIsIconMunu] = useState(true);
+  const [activeStatus, setActiveStatus] = useState("All");
+  const [isIconsMenu, setIsIconsMenu] = useState(true);
   const id = useId();
-  const handleStatus = (label) => {
-    // console.log(label);
-    setActionStatus(label);
-  };
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    // console.log(isIconsMenu);
-    if ("All" === activeStatus) {
-      navigator("/");
-    }
-  }, [activeStatus, isIconsMenu]);
+  const matchedTab = tabConfig.find((tab) => tab.route === pathname);
+  if (matchedTab) {
+    setActiveStatus(matchedTab.label);
+  } else {
+    setActiveStatus("All");
+  }
+}, [pathname]); 
   return (
     <div
-      className={`bg-gray-600 dark:bg-gray-800 text-white text-xl flex flex-col gap-1`}
+      className={`bg-gray-600 dark:bg-gray-800 text-white text-xl flex flex-col gap-1 z-1`}
     >
       <button
-        onClick={() => setIsIconMunu((prev) => !prev)}
+        onClick={() => setIsIconsMenu((prev) => !prev)}
         className="mt-6 mx-2"
       >
         <Menu className="w-10 h-10" />
@@ -40,7 +40,6 @@ const SideBar = () => {
                 className={`list-none px-2 py-1 m-1 hover:bg-gray-800  cursor-pointer rounded ${
                   activeStatus == label ? activeColor : color
                 } `}
-                onClick={() => handleStatus(label)}
               >
                 <Link to={route} className="relative group flex items-center">
                   {isIconsMenu && (

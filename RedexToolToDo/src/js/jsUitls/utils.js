@@ -10,15 +10,15 @@ export const handleTheme = (toggleTheme) => {
 
 export const handletabLabel = (navLink) => {
   let tabLabel = null;
-  if (navLink == "/readytostart") {
+  if (navLink == "/status/readytostart") {
     tabLabel = "Ready to Start";
-  } else if (navLink == "/inprogress") {
+  } else if (navLink == "/status/inprogress") {
     tabLabel = "In Progress";
-  } else if (navLink == "/onhold") {
+  } else if (navLink == "/status/onhold") {
     tabLabel = "On Hold";
-  } else if (navLink == "/completed") {
+  } else if (navLink == "/status/completed") {
     tabLabel = "Completed";
-  } else if (navLink == "/skipped/cancelled") {
+  } else if (navLink == "/status/skipped") {
     tabLabel = "Skipped / Cancelled";
   } else {
     // console.log(navLink);

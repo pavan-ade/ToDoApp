@@ -4,7 +4,6 @@ import SideBar from "../sidebar/SideBar";
 import Header from "../../components/header/Header";
 
 const Layout = () => {
-  
   return (
     <>
       <div className="h-screen flex">
@@ -15,12 +14,11 @@ const Layout = () => {
           </div>
 
           {/* <div> */}
-            <Outlet />
+          <Outlet />
           {/* </div> */}
+          <Footer />
         </div>
       </div>
-
-      <Footer />
     </>
   );
 };

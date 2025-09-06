@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ActionButons = ({ actionBtns }) => {
+const ActionButtons = ({ actionBtns }) => {
   const navigate = useNavigate();
   return (
     <>
@@ -38,4 +38,4 @@ const ActionButons = ({ actionBtns }) => {
   );
 };
 
-export default ActionButons;
+export default ActionButtons;
