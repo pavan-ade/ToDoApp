@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { handletabLabel } from "../../js/jsUitls/utils";
 import { useSelector } from "react-redux";
-import Search from "../search/Search";
-import TodoListView from "../todoListView/todoListView";
+import TodoListView from "../todoListView/TodoListView";
 import EmptyMessage from "../emptyMessage/EmptyMessage";
+import SearchUI from "../searchUI/SearchUI";
 
 const TodoLists = () => {
   const todos = useSelector((state) => state.todos);
@@ -46,7 +46,7 @@ const TodoLists = () => {
 
   return (
     <div className="md:mx-3 mx-2 my-4 mb-14">
-      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+      <SearchUI searchValue={searchValue} setSearchValue={setSearchValue} />
       <hr />
       {filteredTask.length > 0 ? (
         <ul className="list-none ">
