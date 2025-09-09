@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useId } from "react";
 import CloseButton from "../../components/closeButton/CloseButton";
 import { tabs } from "../../js/tabConfig/tabConfig";
+import DropDown from "../../components/dropDown/DropDown";
 
 const AddTodo = ({ editTodo, onClose }) => {
   const todos = useSelector((state) => state.todos);
@@ -64,7 +65,6 @@ const AddTodo = ({ editTodo, onClose }) => {
           className="space-x-3 md:my-4 xs:my-2 md:ml-3 xs:ml-2"
         >
           <div className="md:inline-block xs:block">
-            {/* Input */}
             <input
               type="text"
               className={`bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 sm:py-1 sm:px-3 xs:py-0.6 xs:px-4 leading-8 transition-colors duration-200 ease-in-out
@@ -84,22 +84,9 @@ const AddTodo = ({ editTodo, onClose }) => {
                 {error}
               </span>
             )}
-
-            {/* Status Dropdown */}
-            <select
-              value={status ?? "Not Updated"}
-              onChange={(e) => setStatus(e.target.value)}
-              className="appearance-none bg-gray-600 dark:bg-gray-400 rounded border focus:border-white focus:outline-none focus:ring-0 text-base text-gray-100 py-1 px-3 xs:py-2 xs:px-4 mr-3 mt-4 leading-8 transition-colors duration-200 ease-in-out"
-            >
-              {tabs.map((s, index) => (
-                <option key={uniqId + index} value={s} disabled={index === 0}>
-                  {s}
-                </option>
-              ))}
-            </select>
+            <DropDown status={status} setStatus={setStatus} />
           </div>
 
-          {/* Submit Button */}
           <div className="xs:flex xs:justify-center md:inline-block mt-2">
             <button
               type="submit"
