@@ -27,7 +27,6 @@ const TodoLists = () => {
         setTodoLists(searchedTask);
       } else if (!searchValue.trim()) {
         setTodoLists(todos);
-        navigate("/");
       }
     }, 500);
 

@@ -16,9 +16,12 @@ const DelateTodo = () => {
     setUpdateTodo(todo);
   }, [param.id, todo]);
 
+  const handleClosePop = () => {
+    navigate(-1);
+  };
   const handleDelete = () => {
     dispatch(removeTodo(updateTodo.id));
-    navigate("/");
+    navigate(-1);
   };
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
@@ -33,7 +36,7 @@ const DelateTodo = () => {
             Yes
           </button>
           <button
-            onClick={() => navigate("/")}
+            onClick={handleClosePop}
             className="text-white bg-green-500 border-0 py-1 px-4 mx-2 focus:outline-none hover:bg-green-600 rounded text-md"
           >
             No
