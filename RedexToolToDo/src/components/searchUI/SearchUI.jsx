@@ -11,7 +11,7 @@ const SearchUI = ({ searchValue, setSearchValue }) => {
         <input
           type="text"
           onChange={(e) => setSearchValue(e.target.value)}
-          placeholder={`Please search...`}
+          placeholder={`Search...`}
           className="w-full py-1 px-2 pl-8 border-0 outline-none bg-gray-600 text-white dark:bg-white dark:text-black rounded"
           value={searchValue}
         />

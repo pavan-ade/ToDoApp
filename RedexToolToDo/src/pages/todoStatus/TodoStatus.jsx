@@ -19,7 +19,7 @@ const TodoStatus = () => {
   const handleStatus = () => {
     // console.log(JSON.stringify(todo));
     dispatch(updateTodo(todo));
-    navigator("/");
+    navigator(-1);
   };
 
   useEffect(() => {

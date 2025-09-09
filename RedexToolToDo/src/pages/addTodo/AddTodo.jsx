@@ -29,23 +29,28 @@ const AddTodo = ({ editTodo, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const trimmed = input.trim();
+    const trimedTask = input.trim();
 
-    if (!trimmed) {
+    if (!trimedTask) {
       setError("Todo cannot be empty!");
       return;
     }
 
     if (editTodo?.id) {
-      dispatch(updateTodo({ id: editTodo.id, task: trimmed, status }));
+      dispatch(updateTodo({ id: editTodo.id, task: trimedTask, status }));
     } else {
-      dispatch(addTodo({ task: trimmed, status }));
+      dispatch(
+        addTodo({
+          task: trimedTask,
+          status: status === "Select Status" ? null : status,
+        })
+      );
     }
 
     if (onClose) onClose();
     setInput("");
     setError("");
-    navigate("/");
+    navigate(-1);
   };
 
   return (
