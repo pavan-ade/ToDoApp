@@ -24,7 +24,7 @@ const TodoStatus = () => {
   }, []);
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="md:top-auto xs:top-[-30%] bg-white dark:bg-gray-600 rounded-lg shadow-lg p-3 md:w-full xs:w-[80%] max-w-md relative">
+      <div className="md:top-auto xs:top-[-20%] bg-white dark:bg-gray-600 rounded-lg shadow-lg p-3 md:w-full xs:w-[80%] max-w-md relative">
         <p className="text-lg text-center">
           Please update the Status for {todo?.task}?
         </p>
