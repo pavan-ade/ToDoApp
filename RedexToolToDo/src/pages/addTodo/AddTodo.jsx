@@ -60,7 +60,7 @@ const AddTodo = ({ editTodo, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white dark:bg-gray-600 rounded-lg shadow-lg p-3 md:w-full xs:w-[80%] max-w-md relative">
+      <div className="md:top-auto xs:top-[-30%] bg-white dark:bg-gray-600 rounded-lg shadow-lg p-3 md:w-full xs:w-[80%] max-w-md relative">
         <p className="text-lg text-center">
           {editTodo ? "Please Update Task" : "Please add Task"}
         </p>
@@ -70,7 +70,7 @@ const AddTodo = ({ editTodo, onClose }) => {
           <div className="flex justify-evenly">
             <input
               type="text"
-              className={`md:top-auto xs:top-[-24px] bg-gray-800 rounded border border-gray-700 focus:border-indigo-500
+              className={`bg-gray-800 rounded border border-gray-700 focus:border-indigo-500
                  focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 sm:py-1 
                  sm:px-3 xs:py-0.6 xs:px-4 leading-8 transition-colors duration-200 ease-in-out xs:w-[90%] md:w-60
               ${

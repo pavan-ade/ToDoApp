@@ -25,8 +25,8 @@ const DelateTodo = () => {
   };
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="md:top-auto xs:top-[-10%] bg-white dark:bg-gray-600 rounded-lg shadow-lg p-6 md:w-full xs:w-[80%] max-w-sm relative">
-        <p className="text-lg">Do you want to Delete {updateTodo?.task}?</p>
+      <div className="md:top-auto xs:top-[-30%] bg-white dark:bg-gray-600 rounded-lg shadow-lg p-6 md:w-full xs:w-[80%] max-w-sm relative">
+        <p className="text-lg text-center">Do you want to Delete {updateTodo?.task}?</p>
         <CloseButton />
         <div className="flex justify-center mt-3 ">
           <button
