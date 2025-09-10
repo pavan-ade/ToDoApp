@@ -15,13 +15,9 @@ const UpdateTodo = () => {
   }, [param.id, todos]);
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white dark:bg-gray-600 rounded-lg shadow-lg p-6 md:w-full xs:w-[80%] max-w-md relative">
-        <p className="text-lg">Please Update Task</p>
-        <CloseButton />
-        <AddTodo editTodo={updateTodo} onClose={() => setUpdateTodo(null)} />
-      </div>
-    </div>
+    <>
+      <AddTodo editTodo={updateTodo} onClose={() => setUpdateTodo(null)} />
+    </>
   );
 };
 

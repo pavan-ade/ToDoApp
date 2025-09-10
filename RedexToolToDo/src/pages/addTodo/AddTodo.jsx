@@ -48,6 +48,10 @@ const AddTodo = ({ editTodo, onClose }) => {
       );
     }
 
+    useEffect(() => {
+      if (input) setError("");
+    }, [input]);
+
     if (onClose) onClose();
     setInput("");
     setError("");
@@ -56,19 +60,19 @@ const AddTodo = ({ editTodo, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white dark:bg-gray-600 rounded-lg shadow-lg p-6 md:w-full xs:w-[80%] max-w-md relative">
-        <p className="text-lg">Please add Task</p>
+      <div className="bg-white dark:bg-gray-600 rounded-lg shadow-lg p-3 md:w-full xs:w-[80%] max-w-md relative">
+        <p className="text-lg text-center">
+          {editTodo ? "Please Update Task" : "Please add Task"}
+        </p>
         <CloseButton />
 
-        <form
-          onSubmit={handleSubmit}
-          className="space-x-3 md:my-4 xs:my-2 md:ml-3 xs:ml-2"
-        >
-          <div className="md:inline-block xs:block">
+        <form onSubmit={handleSubmit} className="space-x-3  xs:my-2  xs:ml-2">
+          <div className="flex justify-evenly">
             <input
               type="text"
-              className={`bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 sm:py-1 sm:px-3 xs:py-0.6 xs:px-4 leading-8 transition-colors duration-200 ease-in-out
-              ${editTodo ? "xs:w-full md:w-40" : "xs:w-[90%] md:w-60"}
+              className={`md:top-auto xs:top-[-24px] bg-gray-800 rounded border border-gray-700 focus:border-indigo-500
+                 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 sm:py-1 
+                 sm:px-3 xs:py-0.6 xs:px-4 leading-8 transition-colors duration-200 ease-in-out xs:w-[90%] md:w-60
               ${
                 error
                   ? "border-red-500 focus:border-red-500 focus:ring-red-900 xs:w-60 sm:w-full"
@@ -79,15 +83,15 @@ const AddTodo = ({ editTodo, onClose }) => {
               onChange={(e) => setInput(e.target.value)}
             />
 
-            {error && (
-              <span key={uniqId} className="table text-red-500 text-sm mx-auto">
-                {error}
-              </span>
-            )}
             <DropDown status={status} setStatus={setStatus} />
           </div>
+          {error && (
+            <span key={uniqId} className="text-red-500 text-sm mx-auto ml-2">
+              {error}
+            </span>
+          )}
 
-          <div className="xs:flex xs:justify-center md:inline-block mt-2">
+          <div className="xs:flex xs:justify-center mx-auto mt-3">
             <button
               type="submit"
               className="sm:mx-0 text-white bg-indigo-500 border-0 sm:py-2 sm:px-6 xs:py-0.5 xs:px-3 focus:outline-none hover:bg-indigo-600 rounded text-lg xs:text-md"
