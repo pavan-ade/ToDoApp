@@ -48,10 +48,6 @@ const AddTodo = ({ editTodo, onClose }) => {
       );
     }
 
-    useEffect(() => {
-      if (input) setError("");
-    }, [input]);
-
     if (onClose) onClose();
     setInput("");
     setError("");

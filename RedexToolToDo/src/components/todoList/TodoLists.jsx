@@ -14,6 +14,9 @@ const TodoLists = () => {
   const [searchValue, setSearchValue] = useState("");
   const [activeTab, setActiveTab] = useState(null);
   const [todoLists, setTodoLists] = useState(todos);
+  const [currentPage, setcurrentPage] = useState(0);
+
+  const pageItems = 10;
 
   useEffect(() => {
     setTodoLists(todos);
@@ -43,20 +46,43 @@ const TodoLists = () => {
     return activeTab === "All" ? true : activeStatus === activeTab;
   });
 
+  const startPage = currentPage * pageItems;
+  const endPage = currentPage + pageItems;
+  const currentTodos = filteredTask.slice(startPage, endPage);
+
   return (
-    <div className="md:mx-3 mx-2 my-4 mb-14">
-      <SearchUI searchValue={searchValue} setSearchValue={setSearchValue} />
-      <hr />
-      {filteredTask.length > 0 ? (
-        <ul className="list-none ">
-          {filteredTask.map((todoList) => (
-            <TodoListView key={todoList?.id} todoList={todoList} />
-          ))}
-        </ul>
-      ) : (
-        <EmptyMessage status={activeTab} />
-      )}
-    </div>
+    <>
+      <div className="md:mx-3 mx-2 my-4 mb-14">
+        <SearchUI searchValue={searchValue} setSearchValue={setSearchValue} />
+        <hr />
+        {filteredTask.length > 0 ? (
+          <>
+            <ul className="list-none ">
+              {currentTodos.map((todoList) => (
+                <TodoListView key={todoList?.id} todoList={todoList} />
+              ))}
+            </ul>
+            <div className="flex justify-end p-2 m-2">
+              <button
+                className="px-2 border border-zinc-400 hover:bg-zinc-200 rounded"
+                onClick={() => setcurrentPage(currentPage - 1)}
+              >
+                Pre
+              </button>
+              <span className="p-2">{currentPage}</span>
+              <button
+                className="px-2 border border-zinc-400 hover:bg-zinc-200 rounded"
+                onClick={() => setcurrentPage(currentPage + 1)}
+              >
+                Next
+              </button>
+            </div>
+          </>
+        ) : (
+          <EmptyMessage status={activeTab} />
+        )}
+      </div>
+    </>
   );
 };
 
